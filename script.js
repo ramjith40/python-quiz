@@ -1,5 +1,6 @@
 const FULL_DASH = 339.29;
 const API_BASE = "https://python-quiz-backend.onrender.com";
+const FULL_DASH = 339.29;
 let questions = [];
 let answers = {};
 let startTime = null;
@@ -133,7 +134,7 @@ function submitQuiz() {
   document.getElementById("quiz").innerHTML =
     "<h3>Submitting results...</h3>";
 
-  fetch(`${API_BASE}/submit`) {
+  fetch(`${API_BASE}/submit`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -141,7 +142,7 @@ function submitQuiz() {
       answers: answers,
       start_time: startTime
     })
-  }
+  })
     .then(res => res.json())
     .then(result => {
       console.log("Result:", result);
