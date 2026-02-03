@@ -17,7 +17,7 @@ function startQuiz() {
     return;
   }
 
-  fetch("http://127.0.0.1:5000/questions")
+  fetch(`${API_BASE}/questions`)
     .then(res => {
       if (!res.ok) throw new Error("Backend error");
       return res.json();
@@ -133,7 +133,7 @@ function submitQuiz() {
   document.getElementById("quiz").innerHTML =
     "<h3>Submitting results...</h3>";
 
-  fetch("http://localhost:5000/submit", {
+  fetch(`${API_BASE}/submit`) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -141,7 +141,7 @@ function submitQuiz() {
       answers: answers,
       start_time: startTime
     })
-  })
+  }
     .then(res => res.json())
     .then(result => {
       console.log("Result:", result);
@@ -170,7 +170,7 @@ function nextQuestion() {
 }
 
 function loadLeaderboard() {
-  fetch("http://localhost:5000/leaderboard")
+ fetch(`${API_BASE}/leaderboard`)
     .then(res => res.json())
     .then(data => {
       const ul = document.getElementById("leaderboard");
