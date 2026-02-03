@@ -1,5 +1,5 @@
 const FULL_DASH = 339.29;
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://python-quiz-backend.onrender.com";
 let questions = [];
 let answers = {};
 let startTime = null;
