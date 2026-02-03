@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-CORS(app)
 import random
 import time
 
 app = Flask(__name__)
+CORS(app)
 
 # 🔥 IMPORTANT: allow all origins
 CORS(app, resources={r"/*": {"origins": "*"}})
